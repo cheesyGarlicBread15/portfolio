@@ -98,7 +98,8 @@ export default function App() {
     { name: "Firebase", icon: Database },
     { name: "Supabase", icon: Database },
     { name: "Git", icon: GitBranch },
-    { name: "Canva", icon: Palette }
+    { name: "Canva", icon: Palette },
+    { name: "Figma", icon: Palette }
   ];
 
   const openModal = (project, index) => {
@@ -135,19 +136,19 @@ export default function App() {
 
   return (
     <div className={`min-h-screen transition-colors duration-500 ${darkMode
-        ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900'
-        : 'bg-gradient-to-br from-blue-50 via-white to-blue-50'
+      ? 'bg-gray-950/95'
+      : 'bg-gradient-to-br from-blue-50 via-white to-blue-50'
       }`}>
       {/* Theme Toggle */}
       <button
         onClick={() => setDarkMode(!darkMode)}
         className={`fixed top-4 right-4 md:top-8 md:right-8 z-50 p-3 md:p-4 rounded-full backdrop-blur-md transition-all duration-300 hover:scale-110 ${darkMode
-            ? 'bg-white/10 border border-purple-400/30 hover:bg-white/20'
-            : 'bg-blue-500/20 border border-blue-400/30 hover:bg-blue-500/30'
+          ? 'bg-gray-800/70 border border-gray-700/40 hover:bg-gray-800/80'
+          : 'bg-blue-500/20 border border-blue-400/30 hover:bg-blue-500/30'
           }`}
       >
         {darkMode ? (
-          <Sun className="w-5 h-5 md:w-6 md:h-6 text-yellow-300" />
+          <Sun className="w-5 h-5 md:w-6 md:h-6 text-green-300" />
         ) : (
           <Moon className="w-5 h-5 md:w-6 md:h-6 text-blue-600" />
         )}
@@ -157,28 +158,29 @@ export default function App() {
       <section className="min-h-screen flex items-center justify-center px-4 md:px-6 py-12 md:py-20">
         <div className="max-w-6xl w-full">
           <div className={`backdrop-blur-xl rounded-2xl md:rounded-3xl p-6 md:p-12 transition-all duration-500 ${darkMode
-              ? 'bg-white/5 border border-white/10 shadow-2xl shadow-purple-500/5'
-              : 'bg-white/60 border border-blue-200/50 shadow-2xl shadow-blue-500/10'
+            ? 'bg-gray-800/80 border border-gray-700/40 shadow-2xl shadow-green-500/10'
+            : 'bg-white/60 border border-blue-200/50 shadow-2xl shadow-blue-500/10'
             }`}>
             <div className="text-center mb-8 md:mb-12 animate-fade-in">
-              <h1 className={`text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 transition-colors duration-500 ${darkMode ? 'text-white' : 'text-gray-900'
+              <h1 className={`text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 transition-colors duration-500 ${darkMode ? 'text-gray-100' : 'text-gray-900'
                 }`}>
-                We Build <span className={darkMode ? 'text-purple-400' : 'text-blue-600'}>Together</span>
+                We Build <span className={darkMode ? 'text-green-300' : 'text-blue-600'}>Together</span>
               </h1>
-              <p className={`text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 transition-colors duration-500 ${darkMode ? 'text-gray-300' : 'text-gray-700'
+              <p className={`text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 transition-colors duration-500 ${darkMode ? 'text-gray-400' : 'text-gray-700'
                 }`}>
                 A Developer Duo Crafting Digital Excellence
               </p>
             </div>
 
+            {/* Team Cards */}
             <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-12">
-              {/* Backend Developer */}
+              {/* Backend */}
               <div className={`backdrop-blur-md rounded-xl md:rounded-2xl p-6 md:p-8 transition-all duration-300 hover:scale-105 ${darkMode
-                  ? 'bg-white/5 border border-purple-400/20'
-                  : 'bg-blue-500/10 border border-blue-300/30'
+                ? 'bg-gray-800/80 border border-gray-700/40'
+                : 'bg-blue-500/10 border border-blue-300/30'
                 }`}>
                 <div className="flex flex-col items-center mb-4">
-                  <div className={`w-24 h-24 md:w-32 md:h-32 rounded-full mb-4 overflow-hidden border-4 transition-colors duration-500 ${darkMode ? 'border-purple-400/30' : 'border-blue-400/30'
+                  <div className={`w-24 h-24 md:w-32 md:h-32 rounded-full mb-4 overflow-hidden border-4 transition-colors duration-500 ${darkMode ? 'border-green-300/40' : 'border-blue-400/30'
                     }`}>
                     <img
                       src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
@@ -186,23 +188,23 @@ export default function App() {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <Server className={`w-10 h-10 md:w-12 md:h-12 ${darkMode ? 'text-purple-400' : 'text-blue-600'}`} />
+                  <Server className={`w-10 h-10 md:w-12 md:h-12 ${darkMode ? 'text-green-300' : 'text-blue-600'}`} />
                 </div>
-                <h3 className={`text-xl md:text-2xl font-bold mb-3 text-center ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                <h3 className={`text-xl md:text-2xl font-bold mb-3 text-center ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>
                   Backend Developer
                 </h3>
-                <p className={`leading-relaxed text-sm md:text-base ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                <p className={`leading-relaxed text-sm md:text-base ${darkMode ? 'text-gray-400' : 'text-gray-700'}`}>
                   Architecting robust server-side solutions with Laravel, Python, and PHP. Specializing in database design, API development, and scalable system architecture that powers seamless user experiences.
                 </p>
               </div>
 
-              {/* Frontend Developer */}
+              {/* Frontend */}
               <div className={`backdrop-blur-md rounded-xl md:rounded-2xl p-6 md:p-8 transition-all duration-300 hover:scale-105 ${darkMode
-                  ? 'bg-white/5 border border-purple-400/20'
-                  : 'bg-blue-500/10 border border-blue-300/30'
+                ? 'bg-gray-800/80 border border-gray-700/40'
+                : 'bg-blue-500/10 border border-blue-300/30'
                 }`}>
                 <div className="flex flex-col items-center mb-4">
-                  <div className={`w-24 h-24 md:w-32 md:h-32 rounded-full mb-4 overflow-hidden border-4 transition-colors duration-500 ${darkMode ? 'border-purple-400/30' : 'border-blue-400/30'
+                  <div className={`w-24 h-24 md:w-32 md:h-32 rounded-full mb-4 overflow-hidden border-4 transition-colors duration-500 ${darkMode ? 'border-green-300/40' : 'border-blue-400/30'
                     }`}>
                     <img
                       src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop"
@@ -210,19 +212,19 @@ export default function App() {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <Code2 className={`w-10 h-10 md:w-12 md:h-12 ${darkMode ? 'text-purple-400' : 'text-blue-600'}`} />
+                  <Code2 className={`w-10 h-10 md:w-12 md:h-12 ${darkMode ? 'text-green-300' : 'text-blue-600'}`} />
                 </div>
-                <h3 className={`text-xl md:text-2xl font-bold mb-3 text-center ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                <h3 className={`text-xl md:text-2xl font-bold mb-3 text-center ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>
                   Frontend Developer
                 </h3>
-                <p className={`leading-relaxed text-sm md:text-base ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                <p className={`leading-relaxed text-sm md:text-base ${darkMode ? 'text-gray-400' : 'text-gray-700'}`}>
                   Creating intuitive and responsive interfaces with React.js, Vue.js, and Flutter. Bringing designs to life with pixel-perfect precision and smooth animations that users love.
                 </p>
               </div>
             </div>
 
             <div className="text-center">
-              <p className={`text-base md:text-lg mb-6 md:mb-8 leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+              <p className={`text-base md:text-lg mb-6 md:mb-8 leading-relaxed ${darkMode ? 'text-gray-400' : 'text-gray-700'}`}>
                 We're a collaborative development team that combines backend expertise with frontend finesse.
                 Every project we tackle is a symphony of clean code, thoughtful architecture, and beautiful design.
                 From concept to deployment, we work in perfect sync to deliver full-stack solutions that exceed expectations.
@@ -231,7 +233,7 @@ export default function App() {
 
             {/* Tech Stack */}
             <div className="mt-8 md:mt-12">
-              <h3 className={`text-xl md:text-2xl font-bold text-center mb-4 md:mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              <h3 className={`text-xl md:text-2xl font-bold text-center mb-4 md:mb-6 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>
                 Our Tech Arsenal
               </h3>
               <div className="flex flex-wrap justify-center gap-2 md:gap-4">
@@ -239,12 +241,12 @@ export default function App() {
                   <div
                     key={index}
                     className={`backdrop-blur-md rounded-lg md:rounded-xl px-3 py-2 md:px-5 md:py-3 transition-all duration-300 hover:scale-110 hover:-translate-y-1 ${darkMode
-                        ? 'bg-white/5 border border-purple-400/20 hover:bg-white/10'
-                        : 'bg-blue-500/10 border border-blue-300/30 hover:bg-blue-500/20'
+                      ? 'bg-gray-800/80 border border-gray-700/40 hover:bg-gray-800/90'
+                      : 'bg-blue-500/10 border border-blue-300/30 hover:bg-blue-500/20'
                       }`}
                   >
                     <div className="flex items-center gap-2">
-                      <tech.icon className={`w-4 h-4 md:w-5 md:h-5 ${darkMode ? 'text-purple-400' : 'text-blue-600'}`} />
+                      <tech.icon className={`w-4 h-4 md:w-5 md:h-5 ${darkMode ? 'text-green-300' : 'text-blue-600'}`} />
                       <span className={`font-medium text-sm md:text-base ${darkMode ? 'text-gray-200' : 'text-gray-800'}`}>
                         {tech.name}
                       </span>
@@ -258,7 +260,7 @@ export default function App() {
       </section>
 
       {/* Projects Section */}
-      <section className="px-4 md:px-6 py-12 md:py-20">
+      <section className="px-4 md:px-6 py-0 md:pb-20">
         <div className="max-w-7xl mx-auto">
           <h2 className={`text-3xl md:text-5xl lg:text-6xl font-bold text-center mb-10 md:mb-16 transition-colors duration-500 ${darkMode ? 'text-white' : 'text-gray-900'
             }`}>
@@ -271,8 +273,8 @@ export default function App() {
                 key={index}
                 onClick={() => openModal(project, index)}
                 className={`backdrop-blur-xl rounded-xl md:rounded-2xl overflow-hidden transition-all duration-500 hover:scale-105 hover:-translate-y-2 cursor-pointer ${darkMode
-                    ? 'bg-white/5 border border-white/10 shadow-xl shadow-purple-500/5'
-                    : 'bg-white/70 border border-blue-200/50 shadow-xl shadow-blue-500/10'
+                  ? 'bg-white/5 border border-white/10 shadow-xl shadow-green-300/5'
+                  : 'bg-white/70 border border-blue-200/50 shadow-xl shadow-blue-500/10'
                   }`}
               >
                 <div className="relative overflow-hidden h-40 md:h-48">
@@ -282,8 +284,8 @@ export default function App() {
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                   />
                   <div className={`absolute inset-0 transition-opacity duration-300 ${darkMode
-                      ? 'bg-gradient-to-t from-gray-900/80 to-transparent'
-                      : 'bg-gradient-to-t from-blue-900/50 to-transparent'
+                    ? 'bg-gradient-to-t from-gray-900/80 to-transparent'
+                    : 'bg-gradient-to-t from-blue-900/50 to-transparent'
                     }`} />
                 </div>
 
@@ -302,8 +304,8 @@ export default function App() {
                       <span
                         key={techIndex}
                         className={`text-xs md:text-sm px-2 md:px-3 py-1 rounded-full transition-colors duration-500 ${darkMode
-                            ? 'bg-purple-500/20 text-purple-300 border border-purple-400/30'
-                            : 'bg-blue-500/20 text-blue-700 border border-blue-300/40'
+                          ? 'bg-green-300/20 text-green-300 border border-green-200/40'
+                          : 'bg-blue-500/20 text-blue-700 border border-blue-300/40'
                           }`}
                       >
                         {tech}
@@ -325,8 +327,8 @@ export default function App() {
         >
           <div
             className={`relative w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-2xl md:rounded-3xl transition-all duration-500 ${darkMode
-                ? 'bg-gray-900/95 border border-white/10'
-                : 'bg-white/95 border border-blue-200/50'
+              ? 'bg-gray-900/95 border border-green-200/40'
+              : 'bg-white/95 border border-blue-200/50'
               }`}
             onClick={(e) => e.stopPropagation()}
           >
@@ -334,8 +336,8 @@ export default function App() {
             <button
               onClick={closeModal}
               className={`absolute top-4 right-4 z-10 p-2 rounded-full backdrop-blur-md transition-all duration-300 hover:scale-110 ${darkMode
-                  ? 'bg-white/10 border border-purple-400/30 hover:bg-white/20 text-white'
-                  : 'bg-blue-500/20 border border-blue-400/30 hover:bg-blue-500/30 text-gray-900'
+                ? 'bg-green-300/10 border border-green-200/40 hover:bg-green-300/20 text-green-300'
+                : 'bg-blue-500/20 border border-blue-400/30 hover:bg-blue-500/30 text-gray-900'
                 }`}
             >
               <X className="w-5 h-5 md:w-6 md:h-6" />
@@ -346,8 +348,8 @@ export default function App() {
               <button
                 onClick={prevProject}
                 className={`p-2 md:p-3 rounded-full backdrop-blur-md transition-all duration-300 hover:scale-110 ${darkMode
-                    ? 'bg-white/10 border border-purple-400/30 hover:bg-white/20 text-white'
-                    : 'bg-blue-500/20 border border-blue-400/30 hover:bg-blue-500/30 text-gray-900'
+                  ? 'bg-green-300/10 border border-green-200/40 hover:bg-green-300/20 text-green-300'
+                  : 'bg-blue-500/20 border border-blue-400/30 hover:bg-blue-500/30 text-gray-900'
                   }`}
               >
                 <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
@@ -357,8 +359,8 @@ export default function App() {
               <button
                 onClick={nextProject}
                 className={`p-2 md:p-3 rounded-full backdrop-blur-md transition-all duration-300 hover:scale-110 ${darkMode
-                    ? 'bg-white/10 border border-purple-400/30 hover:bg-white/20 text-white'
-                    : 'bg-blue-500/20 border border-blue-400/30 hover:bg-blue-500/30 text-gray-900'
+                  ? 'bg-green-300/10 border border-green-200/40 hover:bg-green-300/20 text-green-300'
+                  : 'bg-blue-500/20 border border-blue-400/30 hover:bg-blue-500/30 text-gray-900'
                   }`}
               >
                 <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
@@ -381,8 +383,8 @@ export default function App() {
                   <span
                     key={techIndex}
                     className={`text-sm md:text-base px-3 md:px-4 py-1 md:py-2 rounded-full transition-colors duration-500 ${darkMode
-                        ? 'bg-purple-500/20 text-purple-300 border border-purple-400/30'
-                        : 'bg-blue-500/20 text-blue-700 border border-blue-300/40'
+                      ? 'bg-green-300/20 text-green-300 border border-green-200/40'
+                      : 'bg-blue-500/20 text-blue-700 border border-blue-300/40'
                       }`}
                   >
                     {tech}
@@ -404,8 +406,8 @@ export default function App() {
                       <button
                         onClick={prevImage}
                         className={`absolute left-2 md:left-4 top-1/2 -translate-y-1/2 p-2 md:p-3 rounded-full backdrop-blur-md transition-all duration-300 hover:scale-110 ${darkMode
-                            ? 'bg-white/10 border border-purple-400/30 hover:bg-white/20 text-white'
-                            : 'bg-blue-500/20 border border-blue-400/30 hover:bg-blue-500/30 text-gray-900'
+                          ? 'bg-green-300/10 border border-green-200/40 hover:bg-green-300/20 text-green-300'
+                          : 'bg-blue-500/20 border border-blue-400/30 hover:bg-blue-500/30 text-gray-900'
                           }`}
                       >
                         <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
@@ -413,8 +415,8 @@ export default function App() {
                       <button
                         onClick={nextImage}
                         className={`absolute right-2 md:right-4 top-1/2 -translate-y-1/2 p-2 md:p-3 rounded-full backdrop-blur-md transition-all duration-300 hover:scale-110 ${darkMode
-                            ? 'bg-white/10 border border-purple-400/30 hover:bg-white/20 text-white'
-                            : 'bg-blue-500/20 border border-blue-400/30 hover:bg-blue-500/30 text-gray-900'
+                          ? 'bg-green-300/10 border border-green-200/40 hover:bg-green-300/20 text-green-300'
+                          : 'bg-blue-500/20 border border-blue-400/30 hover:bg-blue-500/30 text-gray-900'
                           }`}
                       >
                         <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
@@ -431,10 +433,10 @@ export default function App() {
                         key={index}
                         onClick={() => setCurrentImageIndex(index)}
                         className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-lg md:rounded-xl overflow-hidden transition-all duration-300 ${currentImageIndex === index
-                            ? darkMode
-                              ? 'ring-2 ring-purple-400 scale-105'
-                              : 'ring-2 ring-blue-500 scale-105'
-                            : 'opacity-50 hover:opacity-100'
+                          ? darkMode
+                            ? 'ring-2 ring-green-300 scale-105'
+                            : 'ring-2 ring-blue-500 scale-105'
+                          : 'opacity-50 hover:opacity-100'
                           }`}
                       >
                         <img
@@ -458,21 +460,21 @@ export default function App() {
       )}
 
       {/* Footer */}
-      <footer className="py-8 md:py-12 px-4 md:px-6">
+      {/* <footer className="py-8 md:py-12 px-4 md:px-6">
         <div className={`max-w-4xl mx-auto text-center backdrop-blur-md rounded-xl md:rounded-2xl p-6 md:p-8 transition-all duration-500 ${darkMode
-            ? 'bg-white/5 border border-purple-400/20'
-            : 'bg-blue-500/10 border border-blue-300/30'
+          ? 'bg-green-300/10 border border-green-200/40'
+          : 'bg-blue-500/10 border border-blue-300/30'
           }`}>
           <p className={`text-base md:text-lg transition-colors duration-500 ${darkMode ? 'text-gray-300' : 'text-gray-700'
             }`}>
             Building the future, one commit at a time.
           </p>
-          <p className={`mt-2 text-sm md:text-base transition-colors duration-500 ${darkMode ? 'text-purple-400' : 'text-blue-600'
+          <p className={`mt-2 text-sm md:text-base transition-colors duration-500 ${darkMode ? 'text-green-300' : 'text-blue-600'
             }`}>
             © 2024 Developer Duo
           </p>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 }
