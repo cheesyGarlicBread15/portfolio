@@ -18,6 +18,8 @@ import JavaLogo from "@/assets/logos/java.svg";
 import DartLogo from "@/assets/logos/dart.svg";
 import AndroidstudioLogo from "@/assets/logos/androidstudio.svg";
 import VscodeLogo from "@/assets/logos/vscode.svg";
+import HostingerLogo from "@/assets/logos/hostinger.svg";
+import PorkbunLogo from "@/assets/logos/porkbun.svg";
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -123,6 +125,8 @@ export default function App() {
     { name: "Figma", icon: FigmaLogo },
     { name: "Android Studio", icon: AndroidstudioLogo },
     { name: "VS Code", icon: VscodeLogo },
+    { name: "Hostinger", icon: HostingerLogo },
+    { name: "Porkbun", icon: PorkbunLogo },
   ];
 
   const openModal = (project, index) => {
@@ -257,7 +261,7 @@ export default function App() {
             {/* Tech Stack */}
             <div className="mt-8 md:mt-12">
               <h3 className={`text-xl md:text-2xl font-bold text-center mb-4 md:mb-6 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>
-                Our Tech Arsenal
+                Our Tech Stack
               </h3>
               <div className="flex flex-wrap justify-center gap-2 md:gap-4">
                 {techStack.map((tech, index) => (
