@@ -2,12 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {
   Moon,
   Sun,
-  Code2,
-  Database,
-  Palette,
-  GitBranch,
-  Server,
-  Smartphone,
   X,
   ChevronLeft,
   ChevronRight
@@ -37,32 +31,15 @@ import PorkbunLogo from "@/assets/logos/porkbun.svg";
 import FrontendProfile from "@/assets/profiles/vianca.jpg";
 import BackendProfile from "@/assets/profiles/daven.jpeg";
 
-/**
- * Modern, gradient-leaning, mobile-responsive rewrite.
- * Design direction: C (Gradient Modern Developer Portfolio)
- * Animations: subtle only
- * Modal: not fullscreen on mobile (centered piece)
- * Team cards: stack vertically on mobile
- * Theme toggle: sticky (fixed)
- *
- * NOTE: This file preserves all of your original data/logic (projects, techStack,
- * screenshots import, modal / carousel behavior). Only classes, layout, and small
- * runtime safety checks were added to keep runtime stable (optional chaining).
- *
- * Copy/paste this file into your project (replace existing App.jsx) — no content omitted.
- */
-
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    // apply theme class on root
     document.documentElement.classList.toggle('dark', darkMode);
   }, [darkMode]);
 
-  // import all screenshots (Vite import.meta.glob) - keeps your structure
   const allScreenshots = import.meta.glob(
     "@/assets/screenshots/*/*.{png,jpg,jpeg,webp}",
     { eager: true, import: "default" }
@@ -78,7 +55,28 @@ export default function App() {
     }
   });
 
-  // techStack (kept as-is)
+  const TechBadge = ({ techName }) => {
+    const techItem = techStack.find((t) => t.name === techName);
+    if (!techItem) return (
+      <div className="flex items-center gap-2 px-3 py-1 rounded-lg bg-white/60 dark:bg-white/5 border border-transparent text-sm">
+        <span>{techName}</span>
+      </div>
+    );
+
+    return (
+      <div
+        className={`flex items-center gap-2 px-3 py-1 rounded-lg transition-all duration-200
+          ${darkMode
+            ? 'bg-white/5 border border-white/6'
+            : 'bg-white/70 border border-white/30'
+          }`}
+      >
+        <img src={techItem.icon} alt={techName} className="w-5 h-5" />
+        <span className={`text-sm ${darkMode ? 'text-gray-100' : 'text-gray-800'}`}>{techName}</span>
+      </div>
+    );
+  };
+
   const techStack = [
     { name: "Laravel", icon: LaravelLogo },
     { name: "React.js", icon: ReactLogo },
@@ -102,30 +100,6 @@ export default function App() {
     { name: "Porkbun", icon: PorkbunLogo },
   ];
 
-  // TechBadge - modern non-badge (icon + name, subtle background)
-  const TechBadge = ({ techName }) => {
-    const techItem = techStack.find((t) => t.name === techName);
-    if (!techItem) return (
-      <div className="flex items-center gap-2 px-3 py-1 rounded-lg bg-white/60 dark:bg-white/5 border border-transparent text-sm">
-        <span>{techName}</span>
-      </div>
-    );
-
-    return (
-      <div
-        className={`flex items-center gap-2 px-3 py-1 rounded-lg transition-all duration-200
-          ${darkMode
-            ? 'bg-white/5 border border-white/6'
-            : 'bg-white/70 border border-white/30'
-          }`}
-      >
-        <img src={techItem.icon} alt={techName} className="w-5 h-5" />
-        <span className={`text-sm ${darkMode ? 'text-gray-100' : 'text-gray-800'}`}>{techName}</span>
-      </div>
-    );
-  };
-
-  // projects (preserve your data but safely access screenshot arrays with optional chaining)
   const projects = [
     {
       name: "CMUPin",
