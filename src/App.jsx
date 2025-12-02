@@ -49,6 +49,23 @@ export default function App() {
     }
   });
 
+  const TechBadge = ({ techName, darkMode }) => {
+    const techItem = techStack.find((t) => t.name === techName);
+    if (!techItem) return null;
+
+    return (
+      <div
+        className={`flex items-center gap-1 md:gap-2 text-sm md:text-base px-2 md:px-3 py-1 md:py-2 rounded-full transition-colors duration-500 ${darkMode
+          ? 'bg-green-300/20 text-green-300 border border-green-200/40'
+          : 'bg-blue-500/20 text-blue-700 border border-blue-300/40'
+          }`}
+      >
+        <img src={techItem.icon} alt={techName} className="w-4 h-4 md:w-5 md:h-5" />
+        <span>{techName}</span>
+      </div>
+    );
+  };
+
   const projects = [
     {
       name: "CMUPin",
@@ -338,16 +355,8 @@ export default function App() {
                   </p>
 
                   <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className={`text-xs md:text-sm px-2 md:px-3 py-1 rounded-full transition-colors duration-500 ${darkMode
-                          ? 'bg-green-300/20 text-green-300 border border-green-200/40'
-                          : 'bg-blue-500/20 text-blue-700 border border-blue-300/40'
-                          }`}
-                      >
-                        {tech}
-                      </span>
+                    {project.tech.map((tech, index) => (
+                      <TechBadge key={index} techName={tech} darkMode={darkMode} />
                     ))}
                   </div>
                 </div>
@@ -417,17 +426,14 @@ export default function App() {
               </p>
 
               <div className="flex flex-wrap gap-2 md:gap-3 mb-6 md:mb-8">
-                {selectedProject.tech.map((tech, techIndex) => (
-                  <span
-                    key={techIndex}
-                    className={`text-sm md:text-base px-3 md:px-4 py-1 md:py-2 rounded-full transition-colors duration-500 ${darkMode
-                      ? 'bg-green-300/20 text-green-300 border border-green-200/40'
-                      : 'bg-blue-500/20 text-blue-700 border border-blue-300/40'
-                      }`}
-                  >
-                    {tech}
-                  </span>
-                ))}
+                {selectedProject.tech.map((techName, techIndex) => {
+                  const techItem = techStack.find((t) => t.name === techName);
+                  if (!techItem) return null; // skip if not found
+
+                  return (
+                    <TechBadge key={techIndex} techName={techName} darkMode={darkMode} />
+                  );
+                })}
               </div>
 
               {/* Image Carousel */}
