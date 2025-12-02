@@ -82,6 +82,10 @@ export default function App() {
       image: screenshotsByProject["project2"].find(img => img.includes('project2-1.png')),
       tech: ["Flutter", "Dart", "Firebase", "Supabase"],
       screenshots: screenshotsByProject["project2"] || [],
+      links: [
+        { type: "Website", url: "https://cosmic-explorer-f4ca2.web.app/" },
+        { type: "GitHub", url: "https://github.com/cheesyGarlicBread15/cosmic-explorer.git" }
+      ]
     },
     {
       name: "SafeAssist",
@@ -408,6 +412,26 @@ export default function App() {
                   );
                 })}
               </div>
+
+              {/* Project Links */}
+              {(selectedProject.links || []).length > 0 && (
+                <div className="flex flex-wrap gap-3 mb-6">
+                  {(selectedProject.links || []).map((link, idx) => (
+                    <a
+                      key={idx}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`px-3 py-1 rounded-full font-medium text-sm md:text-base transition-colors duration-300 ${darkMode
+                        ? "bg-gray-800 border border-green-300 text-green-300 hover:bg-gray-700"
+                        : "bg-blue-50 border border-blue-500 text-blue-700 hover:bg-blue-100"
+                        }`}
+                    >
+                      {link.type}
+                    </a>
+                  ))}
+                </div>
+              )}
 
               {/* Image Carousel */}
               <div className="relative">
