@@ -1,5 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Moon, Sun, Code2, Database, Palette, GitBranch, Server, Smartphone, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import ReactLogo from "@/assets/logos/react.svg";
+import VueLogo from "@/assets/logos/vue.svg";
+import CanvaLogo from "@/assets/logos/canva.svg";
+import FigmaLogo from "@/assets/logos/figma.svg";
+import GithubLogo from "@/assets/logos/github.svg";
+import PostgresqlLogo from "@/assets/logos/postgresql.svg";
+import SupabaseLogo from "@/assets/logos/supabase.svg";
+import FirebaseLogo from "@/assets/logos/firebase.svg";
+import FlutterLogo from "@/assets/logos/flutter.svg";
+import GitLogo from "@/assets/logos/git.svg";
+import LaravelLogo from "@/assets/logos/laravel.svg";
+import MysqlLogo from "@/assets/logos/mysql.svg";
+import PhpLogo from "@/assets/logos/php.svg";
+import PythonLogo from "@/assets/logos/python.svg";
+import JavaLogo from "@/assets/logos/java.svg";
+import DartLogo from "@/assets/logos/dart.svg";
+import AndroidstudioLogo from "@/assets/logos/androidstudio.svg";
+import VscodeLogo from "@/assets/logos/vscode.svg";
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -87,19 +105,24 @@ export default function App() {
   ];
 
   const techStack = [
-    { name: "Laravel", icon: Server },
-    { name: "React.js", icon: Code2 },
-    { name: "Vue.js", icon: Code2 },
-    { name: "Flutter", icon: Smartphone },
-    { name: "Python", icon: Code2 },
-    { name: "PHP", icon: Server },
-    { name: "MySQL", icon: Database },
-    { name: "PostgreSQL", icon: Database },
-    { name: "Firebase", icon: Database },
-    { name: "Supabase", icon: Database },
-    { name: "Git", icon: GitBranch },
-    { name: "Canva", icon: Palette },
-    { name: "Figma", icon: Palette }
+    { name: "Laravel", icon: LaravelLogo },
+    { name: "React.js", icon: ReactLogo },
+    { name: "Vue.js", icon: VueLogo },
+    { name: "Flutter", icon: FlutterLogo },
+    { name: "Python", icon: PythonLogo },
+    { name: "PHP", icon: PhpLogo },
+    { name: "Java", icon: JavaLogo },
+    { name: "Dart", icon: DartLogo },
+    { name: "MySQL", icon: MysqlLogo },
+    { name: "PostgreSQL", icon: PostgresqlLogo },
+    { name: "Firebase", icon: FirebaseLogo },
+    { name: "Supabase", icon: SupabaseLogo },
+    { name: "Git", icon: GitLogo },
+    { name: "GitHub", icon: GithubLogo },
+    { name: "Canva", icon: CanvaLogo },
+    { name: "Figma", icon: FigmaLogo },
+    { name: "Android Studio", icon: AndroidstudioLogo },
+    { name: "VS Code", icon: VscodeLogo },
   ];
 
   const openModal = (project, index) => {
@@ -246,7 +269,8 @@ export default function App() {
                       }`}
                   >
                     <div className="flex items-center gap-2">
-                      <tech.icon className={`w-4 h-4 md:w-5 md:h-5 ${darkMode ? 'text-green-300' : 'text-blue-600'}`} />
+                      <img src={tech.icon} alt="React" className="w-6 h-6" />
+                      {/* <tech.icon className={`w-4 h-4 md:w-5 md:h-5 ${darkMode ? 'text-green-300' : 'text-blue-600'}`} /> */}
                       <span className={`font-medium text-sm md:text-base ${darkMode ? 'text-gray-200' : 'text-gray-800'}`}>
                         {tech.name}
                       </span>
