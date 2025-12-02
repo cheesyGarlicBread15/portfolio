@@ -72,35 +72,35 @@ export default function App() {
     {
       name: "CMUPin",
       description: "Cmu pin description",
-      image: screenshotsByProject["project1"][0],
+      image: screenshotsByProject["project1"].find(img => img.includes('project1-1.png')),
       tech: ["Laravel", "React.js", "PostgreSQL"],
       screenshots: screenshotsByProject["project1"] || [],
     },
     {
       name: "Cosmic Explorer",
       description: "cosmic explore description",
-      image: screenshotsByProject["project2"][0],
+      image: screenshotsByProject["project2"].find(img => img.includes('project2-1.png')),
       tech: ["Flutter", "Dart", "Firebase", "Supabase"],
       screenshots: screenshotsByProject["project2"] || [],
     },
     {
       name: "SafeAssist",
       description: "safeassist description",
-      image: screenshotsByProject["project3"][0],
+      image: screenshotsByProject["project3"].find(img => img.includes('project3-1.png')),
       tech: ["Figma", "Canva"],
       screenshots: screenshotsByProject["project3"] || [],
     },
     {
       name: "CSCo",
       description: "csco description",
-      image: screenshotsByProject["project4"][0],
+      image: screenshotsByProject["project4"].find(img => img.includes('project4-1.png')),
       tech: ["React.js", "Hostinger"],
       screenshots: screenshotsByProject["project4"] || [],
     },
     {
       name: "Memoir",
       description: "memoir description",
-      image: screenshotsByProject["project5"][0],
+      image: screenshotsByProject["project5"].find(img => img.includes('project5-1.png')),
       tech: ["Figma"],
       screenshots: screenshotsByProject["project5"] || [],
     },
@@ -236,7 +236,7 @@ export default function App() {
                     <img
                       src={FrontendProfile}
                       alt="Frontend Developer"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover scale-110"
                     />
                   </div>
                   <Code2 className={`w-10 h-10 md:w-12 md:h-12 ${darkMode ? 'text-green-300' : 'text-blue-600'}`} />
