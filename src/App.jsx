@@ -75,6 +75,9 @@ export default function App() {
       image: screenshotsByProject["project1"].find(img => img.includes('project1-1.png')),
       tech: ["Laravel", "React.js", "PostgreSQL"],
       screenshots: screenshotsByProject["project1"] || [],
+      links: [
+        { type: "GitHub", url: "https://github.com/cheesyGarlicBread15/cmupin.git" },
+      ]
     },
     {
       name: "Cosmic Explorer",
@@ -100,6 +103,10 @@ export default function App() {
       image: screenshotsByProject["project4"].find(img => img.includes('project4-1.png')),
       tech: ["React.js", "Hostinger"],
       screenshots: screenshotsByProject["project4"] || [],
+      links: [
+        { type: "Website", url: "https://csco.space" },
+        { type: "GitHub", url: "https://github.com/cheesyGarlicBread15/csco_space.git" }
+      ]
     },
     {
       name: "Memoir",
