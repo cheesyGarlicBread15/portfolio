@@ -82,15 +82,11 @@ export default function App() {
       screenshots: screenshotsByProject["project2"] || [],
     },
     {
-      name: "FinanceFlow",
-      description: "Personal finance management mobile app with budget tracking, expense categorization, and AI-powered spending insights to help users achieve financial goals.",
-      image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=500&fit=crop",
+      name: "SafeAssist",
+      description: "safeassist description",
+      image: screenshotsByProject["project3"][0],
       tech: ["Flutter", "Dart", "Supabase", "Python"],
-      screenshots: [
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&h=800&fit=crop"
-      ]
+      screenshots: screenshotsByProject["project3"] || [],
     },
     {
       name: "TaskMaster Pro",
@@ -336,7 +332,7 @@ export default function App() {
                   <img
                     src={project.image}
                     alt={project.name}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    className="w-full h-full object-contain transition-transform duration-500"
                   />
                   <div className={`absolute inset-0 transition-opacity duration-300 ${darkMode
                     ? 'bg-gradient-to-t from-gray-900/80 to-transparent'
@@ -442,7 +438,7 @@ export default function App() {
                   <img
                     src={selectedProject.screenshots[currentImageIndex]}
                     alt={`Screenshot ${currentImageIndex + 1}`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
 
                   {selectedProject.screenshots.length > 1 && (
