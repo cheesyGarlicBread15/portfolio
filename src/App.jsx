@@ -129,7 +129,7 @@ export default function App() {
   const projects = [
     {
       name: "CMUPin",
-      description: "Cmu pin description",
+      description: "A community-powered platform for reporting and mapping hazardous events like floods, landslides, fires, and other emergencies. Users can pin incidents on an interactive map with geographical layers, share updates, and verify reports. By turning community input into actionable insights, the platform helps citizens, responders, and local authorities coordinate faster, stay aware of risks, and work together to keep everyone safe.",
       image: screenshotsByProject["project1"]?.find(img => img.includes('project1-1.png')) || (screenshotsByProject["project1"]?.[0] ?? ''),
       tech: ["Laravel", "React.js", "PostgreSQL"],
       screenshots: screenshotsByProject["project1"] || [],
@@ -139,7 +139,7 @@ export default function App() {
     },
     {
       name: "Cosmic Explorer",
-      description: "cosmic explore description",
+      description: "Cosmic Explorer is a multi-platform app that lets users dive into NASA’s incredible media library. From stunning images and videos to fascinating audio clips, it brings space missions, scientific discoveries, and astronomical phenomena right to your fingertips—whether on mobile, web, or desktop.",
       image: screenshotsByProject["project2"]?.find(img => img.includes('project2-1.png')) || (screenshotsByProject["project2"]?.[0] ?? ''),
       tech: ["Flutter", "Dart", "Firebase", "Supabase"],
       screenshots: screenshotsByProject["project2"] || [],
@@ -150,14 +150,14 @@ export default function App() {
     },
     {
       name: "SafeAssist",
-      description: "safeassist description",
+      description: "SafeAssist is a safety app made for delivery drivers. It gives quick access to police, hospitals, and auto repair services, while also letting drivers send emergency alerts to authorities and their company. Designed for peace of mind on the road, SafeAssist helps drivers stay safe, respond quickly to incidents, and navigate their routes with confidence.",
       image: screenshotsByProject["project3"]?.find(img => img.includes('project3-1.png')) || (screenshotsByProject["project3"]?.[0] ?? ''),
       tech: ["Figma", "Canva"],
       screenshots: screenshotsByProject["project3"] || [],
     },
     {
       name: "CSCo",
-      description: "csco description",
+      description: "CSCo is the official landing page for the student council of the College of Information Sciences and Computing at Central Mindanao University. Designed to showcase updates, events, and initiatives from the council, the site serves as a hub for students to stay connected and informed. Currently under construction, CSCo will soon provide a modern, user-friendly space for the college community to engage with their student leaders and access important information.",
       image: screenshotsByProject["project4"]?.find(img => img.includes('project4-1.png')) || (screenshotsByProject["project4"]?.[0] ?? ''),
       tech: ["React.js", "Hostinger"],
       screenshots: screenshotsByProject["project4"] || [],
@@ -168,7 +168,7 @@ export default function App() {
     },
     {
       name: "Memoir",
-      description: "memoir description",
+      description: "Memoir is a personal gallery for photos and poetry, perfect for anyone who wants to capture and cherish their moments. It organizes selfies, portraits, and written pieces in a clean, mobile-friendly layout, making it easy to browse, upload, and preserve memories. Memoir is simple, beautiful, and designed to help users express themselves creatively.",
       image: screenshotsByProject["project5"]?.find(img => img.includes('project5-1.png')) || (screenshotsByProject["project5"]?.[0] ?? ''),
       tech: ["Figma"],
       screenshots: screenshotsByProject["project5"] || [],
