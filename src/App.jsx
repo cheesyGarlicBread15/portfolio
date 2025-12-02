@@ -20,6 +20,8 @@ import AndroidstudioLogo from "@/assets/logos/androidstudio.svg";
 import VscodeLogo from "@/assets/logos/vscode.svg";
 import HostingerLogo from "@/assets/logos/hostinger.svg";
 import PorkbunLogo from "@/assets/logos/porkbun.svg";
+import FrontendProfile from "@/assets/profiles/vianca.jpg"
+import BackendProfile from "@/assets/profiles/daven.jpeg"
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -85,48 +87,23 @@ export default function App() {
       name: "SafeAssist",
       description: "safeassist description",
       image: screenshotsByProject["project3"][0],
-      tech: ["Flutter", "Dart", "Supabase", "Python"],
+      tech: ["Figma", "Canva"],
       screenshots: screenshotsByProject["project3"] || [],
     },
     {
-      name: "TaskMaster Pro",
-      description: "Enterprise project management solution with real-time collaboration, resource allocation, and intelligent task prioritization for remote teams.",
-      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=500&fit=crop",
-      tech: ["Laravel", "React.js", "PostgreSQL", "Firebase"],
-      screenshots: [
-        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&h=800&fit=crop"
-      ]
+      name: "CSCo",
+      description: "csco description",
+      image: screenshotsByProject["project4"][0],
+      tech: ["React.js", "Hostinger"],
+      screenshots: screenshotsByProject["project4"] || [],
     },
     {
-      name: "ShopSphere",
-      description: "Multi-vendor e-commerce platform with inventory management, payment gateway integration, and customer analytics dashboard for online retailers.",
-      image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=500&fit=crop",
-      tech: ["PHP", "Vue.js", "MySQL", "Hostinger"],
-      screenshots: [
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&h=800&fit=crop"
-      ]
+      name: "Memoir",
+      description: "memoir description",
+      image: screenshotsByProject["project5"][0],
+      tech: ["Figma"],
+      screenshots: screenshotsByProject["project5"] || [],
     },
-    {
-      name: "LearnHub",
-      description: "Interactive e-learning platform with video courses, progress tracking, quizzes, and certification system for students and professionals.",
-      image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&h=500&fit=crop",
-      tech: ["Laravel", "React.js", "Firebase", "Android Studio"],
-      screenshots: [
-        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=800&fit=crop"
-      ]
-    }
   ];
 
   const techStack = [
@@ -233,7 +210,7 @@ export default function App() {
                   <div className={`w-24 h-24 md:w-32 md:h-32 rounded-full mb-4 overflow-hidden border-4 transition-colors duration-500 ${darkMode ? 'border-green-300/40' : 'border-blue-400/30'
                     }`}>
                     <img
-                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+                      src={BackendProfile}
                       alt="Backend Developer"
                       className="w-full h-full object-cover"
                     />
@@ -257,7 +234,7 @@ export default function App() {
                   <div className={`w-24 h-24 md:w-32 md:h-32 rounded-full mb-4 overflow-hidden border-4 transition-colors duration-500 ${darkMode ? 'border-green-300/40' : 'border-blue-400/30'
                     }`}>
                     <img
-                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop"
+                      src={FrontendProfile}
                       alt="Frontend Developer"
                       className="w-full h-full object-cover"
                     />
