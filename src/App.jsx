@@ -34,25 +34,35 @@ export default function App() {
     }
   }, [darkMode]);
 
+  const allScreenshots = import.meta.glob(
+    "@/assets/screenshots/*/*.{png,jpg,jpeg,webp}",
+    { eager: true, import: "default" }
+  );
+
+  const screenshotsByProject = {};
+  Object.entries(allScreenshots).forEach(([path, url]) => {
+    const match = path.match(/screenshots\/([^/]+)\//);
+    if (match) {
+      const projectName = match[1];
+      if (!screenshotsByProject[projectName]) screenshotsByProject[projectName] = [];
+      screenshotsByProject[projectName].push(url);
+    }
+  });
+
   const projects = [
     {
-      name: "EcoTrack",
-      description: "A comprehensive sustainability tracking platform that helps businesses monitor their carbon footprint and environmental impact in real-time with advanced analytics.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=500&fit=crop",
-      tech: ["Laravel", "React.js", "PostgreSQL", "Hostinger"],
-      screenshots: [
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop"
-      ]
+      name: "CMUPin",
+      description: "Cmu pin description",
+      image: screenshotsByProject["project1"][0],
+      tech: ["Laravel", "React.js", "PostgreSQL"],
+      screenshots: screenshotsByProject["project1"] || [],
     },
     {
-      name: "MediConnect",
-      description: "Healthcare appointment management system with telemedicine capabilities, patient records, and automated scheduling for clinics and hospitals.",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=500&fit=crop",
-      tech: ["PHP", "Vue.js", "MySQL", "Firebase"],
-      screenshots: [
-        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop"
-      ]
+      name: "Cosmic Explorer",
+      description: "cosmic explore description",
+      image: screenshotsByProject["project2"][0],
+      tech: ["Flutter", "Dart", "Firebase", "Supabase"],
+      screenshots: screenshotsByProject["project2"] || [],
     },
     {
       name: "FinanceFlow",
