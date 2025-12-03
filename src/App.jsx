@@ -129,6 +129,9 @@ export default function App() {
       image: screenshotsByProject["project3"]?.find(img => img.includes('project3-1.png')) || (screenshotsByProject["project3"]?.[0] ?? ''),
       tech: ["Figma", "Canva"],
       screenshots: screenshotsByProject["project3"] || [],
+      links: [
+        { type: "Figma", url: "https://www.figma.com/proto/lo51BxeeCm9c9yUQP9fUGF/SafeAssist?node-id=48-261&p=f&t=wEA5nZRI0vdUqQy3-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=208%3A274" }
+      ]
     },
     {
       name: "CSCo",
@@ -147,6 +150,9 @@ export default function App() {
       image: screenshotsByProject["project5"]?.find(img => img.includes('project5-1.png')) || (screenshotsByProject["project5"]?.[0] ?? ''),
       tech: ["Figma"],
       screenshots: screenshotsByProject["project5"] || [],
+      links: [
+        { type: "Figma", url: "https://www.figma.com/proto/rGqwgsTG7Yj703tAIvH7Rx/Memoir?node-id=27-59&p=f&t=658YiPSeZgnw6Rty-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=27%3A2" }
+      ]
     },
   ];
 
@@ -196,35 +202,34 @@ export default function App() {
   return (
     <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'bg-gray-950 text-gray-100' : 'bg-white text-gray-900'}`}>
 
-      {/* Sticky Theme Toggle (STICKY requested) */}
       <button
         onClick={() => setDarkMode(!darkMode)}
         aria-label="Toggle theme"
         className={`fixed top-4 right-4 z-50 p-3 rounded-full shadow-lg border transition-transform duration-200 hover:scale-105 focus:outline-none
-          ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'}`}
+        ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-slate-200'}`}
       >
         {darkMode ? <Sun className="w-5 h-5 text-yellow-300" /> : <Moon className="w-5 h-5 text-blue-600" />}
       </button>
 
-      {/* HERO */}
       <section className="min-h-screen flex items-center justify-center px-6 py-16 md:py-24">
         <div className="w-full max-w-6xl">
           <div
             className={`relative overflow-hidden rounded-xl md:rounded-2xl p-6 md:p-12 shadow-md transition-all duration-300
-              ${darkMode ? 'bg-opacity-40 bg-gradient-to-br from-black/40 to-gray-900/40' : `bg-gradient-to-br ${accentFrom} ${accentTo} bg-opacity-10`}`}
+            ${darkMode
+                ? 'bg-opacity-40 bg-gradient-to-br from-black/40 to-gray-900/40'
+                : 'bg-gradient-to-br from-slate-50 to-slate-200 bg-opacity-60'}`}
           >
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-4">
                 We Build <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-cyan-400">Together</span>
               </h1>
-              <p className={`text-base md:text-lg mb-8 opacity-90 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+
+              <p className={`text-base md:text-lg mb-8 opacity-90 ${darkMode ? 'text-gray-300' : 'text-slate-600'}`}>
                 A Developer Duo Crafting Digital Excellence — full stack solutions with clean code, scalable architecture, and elegant interfaces.
               </p>
 
-              {/* TEAM CARDS - stack vertically on mobile */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Backend */}
-                <div className={`rounded-xl p-4 md:p-6 transition-shadow duration-200 ${darkMode ? 'bg-gray-900/60 border border-gray-800' : 'bg-white/75 border border-white/60'}`}>
+                <div className={`${darkMode ? 'bg-gray-900/60 border border-gray-800' : 'bg-slate-50/70 border border-slate-200'} rounded-xl p-4 md:p-6 transition-shadow duration-200`}>
                   <div className="flex flex-col items-center md:items-start gap-4 md:flex-row">
                     <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-white/20 flex-shrink-0">
                       <img src={BackendProfile} alt="Backend Developer" className="w-full h-full object-cover" />
@@ -238,8 +243,7 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Frontend */}
-                <div className={`rounded-xl p-4 md:p-6 transition-shadow duration-200 ${darkMode ? 'bg-gray-900/60 border border-gray-800' : 'bg-white/75 border border-white/60'}`}>
+                <div className={`${darkMode ? 'bg-gray-900/60 border border-gray-800' : 'bg-slate-50/70 border border-slate-200'} rounded-xl p-4 md:p-6 transition-shadow duration-200`}>
                   <div className="flex flex-col items-center md:items-start gap-4 md:flex-row">
                     <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-white/20 flex-shrink-0">
                       <img src={FrontendProfile} alt="Frontend Developer" className="w-full h-full object-cover scale-110" />
@@ -262,7 +266,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* TECH STACK */}
       <section className="px-6 py-12 md:py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-4xl font-bold text-center mb-6">Our Tech Stack</h2>
@@ -272,17 +275,16 @@ export default function App() {
               <div
                 key={i}
                 className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-transform duration-150 hover:-translate-y-1
-                  ${darkMode ? 'bg-white/3 border border-white/6' : 'bg-white/90 border border-gray-100'}`}
+                ${darkMode ? 'bg-white/3 border border-white/6' : 'bg-white border border-slate-200 shadow-sm'}`}
               >
                 <img src={tech.icon} alt={tech.name} className="w-6 h-6" />
-                <span className={`text-sm ${darkMode ? 'text-gray-100' : 'text-gray-800'}`}>{tech.name}</span>
+                <span className={`text-sm ${darkMode ? 'text-gray-100' : 'text-slate-800'}`}>{tech.name}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* PROJECTS GRID */}
       <section className="px-6 py-8 md:py-12">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl md:text-4xl font-bold text-center mb-8">Our Projects</h2>
@@ -293,21 +295,19 @@ export default function App() {
                 key={index}
                 onClick={() => openModal(project, index)}
                 className={`rounded-xl overflow-hidden shadow-sm hover:shadow-md transform transition-all duration-200 cursor-pointer
-                  ${darkMode ? 'bg-gray-900/60 border border-gray-800' : 'bg-white/95 border border-gray-100'}`}
+                ${darkMode ? 'bg-gray-900/60 border border-gray-800' : 'bg-white border border-slate-200'}`}
               >
                 <div className="relative w-full bg-gray-100 dark:bg-gray-800 h-48 flex items-center justify-center">
-                  {/* project cover image — object-contain to avoid cropping */}
                   {project.image ? (
                     <img src={project.image} alt={project.name} className="max-h-full max-w-full object-contain p-4" />
                   ) : (
                     <div className="text-sm text-gray-500">No preview available</div>
                   )}
-                  <div className={`absolute inset-0 pointer-events-none ${darkMode ? '' : ''}`} />
                 </div>
 
                 <div className="p-4 md:p-5">
                   <h3 className="text-lg md:text-xl font-semibold mb-2">{project.name}</h3>
-                  <p className={`text-sm md:text-base mb-3 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>{project.description}</p>
+                  <p className={`text-sm md:text-base mb-3 ${darkMode ? 'text-gray-300' : 'text-slate-600'}`}>{project.description}</p>
 
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((t, i) => (
@@ -321,67 +321,57 @@ export default function App() {
         </div>
       </section>
 
-      {/* PROJECT MODAL */}
       {selectedProject && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          onClick={closeModal}
-        >
-          {/* backdrop */}
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={closeModal}>
           <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
 
           <div
             className={`relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl shadow-xl p-4 md:p-6 z-10
-              ${darkMode ? 'bg-gray-900 border border-gray-800' : 'bg-white/95 border border-gray-200'}`}
+            ${darkMode ? 'bg-gray-900 border border-gray-800' : 'bg-white border border-slate-200'}`}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* close */}
             <button
               onClick={closeModal}
               className={`absolute top-4 right-4 p-2 rounded-full transition-colors duration-150 focus:outline-none
-                ${darkMode ? 'bg-white/5 border border-white/6 text-gray-100' : 'bg-white border border-gray-100 text-gray-700 shadow'}`}
-              aria-label="Close"
+              ${darkMode ? 'bg-white/5 border border-white/6 text-gray-100' : 'bg-white border border-slate-200 text-gray-700 shadow'}`}
             >
               <X className="w-5 h-5" />
             </button>
 
-            {/* project nav */}
             <div className="absolute top-1/2 left-4 -translate-y-1/2 z-20">
               <button
                 onClick={prevProject}
-                className={`p-2 rounded-full transition-transform duration-150 ${darkMode ? 'bg-white/5 border border-white/6' : 'bg-white border border-gray-100'}`}
+                className={`p-2 rounded-full ${darkMode ? 'bg-white/5 border border-white/6' : 'bg-white border border-slate-200'}`}
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
             </div>
+
             <div className="absolute top-1/2 right-4 -translate-y-1/2 z-20">
               <button
                 onClick={nextProject}
-                className={`p-2 rounded-full transition-transform duration-150 ${darkMode ? 'bg-white/5 border border-white/6' : 'bg-white border border-gray-100'}`}
+                className={`p-2 rounded-full ${darkMode ? 'bg-white/5 border border-white/6' : 'bg-white border border-slate-200'}`}
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
             </div>
 
-            {/* content */}
             <div className="space-y-4 md:space-y-6">
               <h2 className="text-xl md:text-2xl font-bold">{selectedProject.name}</h2>
-              <p className={darkMode ? 'text-gray-300' : 'text-gray-700'}>{selectedProject.description}</p>
+              <p className={darkMode ? 'text-gray-300' : 'text-slate-700'}>{selectedProject.description}</p>
 
-              {/* tech list (icons inline) */}
               <div className="flex flex-wrap gap-3">
                 {selectedProject.tech.map((t, i) => (
                   <div key={i} className="flex items-center gap-2 px-3 py-1 rounded-lg border bg-white/5">
                     {(() => {
-                      const item = techStack.find(x => x.name === t);
-                      return item ? <img src={item.icon} alt={t} className="w-5 h-5" /> : null;
+                      const item = techStack.find(x => x.name === t)
+                      return item ? <img src={item.icon} alt={t} className="w-5 h-5" /> : null
                     })()}
                     <span className="text-sm">{t}</span>
                   </div>
                 ))}
               </div>
 
-              {/* links — modern card-like */}
               {(selectedProject.links || []).length > 0 && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {(selectedProject.links || []).map((link, idx) => (
@@ -390,8 +380,8 @@ export default function App() {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`flex items-center justify-between px-4 py-3 rounded-lg transition-transform duration-150 hover:-translate-y-1
-                        ${darkMode ? 'bg-white/5 border border-white/6' : 'bg-white border border-gray-100'}`}
+                      className={`flex items-center justify-between px-4 py-3 rounded-lg hover:-translate-y-1 transition-transform
+                      ${darkMode ? 'bg-white/5 border border-white/6' : 'bg-white border border-slate-200'}`}
                     >
                       <span className={`font-medium ${darkMode ? 'text-green-300' : 'text-blue-600'}`}>{link.type}</span>
                       <svg xmlns="http://www.w3.org/2000/svg" className={`w-4 h-4 ${darkMode ? 'text-green-300' : 'text-blue-600'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -402,13 +392,11 @@ export default function App() {
                 </div>
               )}
 
-              {/* image carousel */}
               <div className="space-y-3">
                 <div
-                  className={`relative w-full rounded-lg overflow-hidden border ${darkMode ? 'border-white/6' : 'border-gray-100'} bg-gray-50 dark:bg-gray-800`}
+                  className={`relative w-full rounded-lg overflow-hidden border ${darkMode ? 'border-white/6' : 'border-slate-200'} bg-gray-50 dark:bg-gray-800`}
                   style={{ aspectRatio: '16/9' }}
                 >
-                  {/* center the image with object-contain to avoid cropping */}
                   {selectedProject.screenshots && selectedProject.screenshots.length > 0 ? (
                     <img
                       src={selectedProject.screenshots[currentImageIndex]}
@@ -421,20 +409,17 @@ export default function App() {
                     </div>
                   )}
 
-                  {/* carousel arrows */}
                   {(selectedProject.screenshots || []).length > 1 && (
                     <>
                       <button
                         onClick={prevImage}
-                        className={`absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full transition-colors ${darkMode ? 'bg-white/5' : 'bg-white/90'}`}
-                        aria-label="Previous image"
+                        className={`absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full ${darkMode ? 'bg-white/5' : 'bg-white'}`}
                       >
                         <ChevronLeft className="w-5 h-5" />
                       </button>
                       <button
                         onClick={nextImage}
-                        className={`absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full transition-colors ${darkMode ? 'bg-white/5' : 'bg-white/90'}`}
-                        aria-label="Next image"
+                        className={`absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full ${darkMode ? 'bg-white/5' : 'bg-white'}`}
                       >
                         <ChevronRight className="w-5 h-5" />
                       </button>
@@ -442,7 +427,6 @@ export default function App() {
                   )}
                 </div>
 
-                {/* thumbnails */}
                 {(selectedProject.screenshots || []).length > 1 && (
                   <div className="flex gap-2 overflow-x-auto pb-2">
                     {selectedProject.screenshots.map((s, i) => (
@@ -450,8 +434,7 @@ export default function App() {
                         key={i}
                         onClick={() => setCurrentImageIndex(i)}
                         className={`flex-shrink-0 w-20 h-12 rounded-md overflow-hidden border transition-transform duration-150
-                          ${i === currentImageIndex ? 'scale-105 ring-2 ring-offset-1' : 'opacity-75 hover:opacity-100'}`}
-                        aria-label={`Go to screenshot ${i + 1}`}
+                        ${i === currentImageIndex ? 'scale-105 ring-2 ring-offset-1 ring-blue-400' : 'opacity-75 hover:opacity-100'} ${darkMode ? 'border-white/10' : 'border-slate-200'}`}
                       >
                         <img src={s} alt={`thumb-${i}`} className="w-full h-full object-cover" />
                       </button>
@@ -467,7 +450,6 @@ export default function App() {
           </div>
         </div>
       )}
-
     </div>
   );
 }
