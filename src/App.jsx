@@ -29,7 +29,7 @@ import HostingerLogo from "@/assets/logos/hostinger.svg";
 import PorkbunLogo from "@/assets/logos/porkbun.svg";
 
 import FrontendProfile from "@/assets/profiles/vianca.jpg";
-import BackendProfile from "@/assets/profiles/daven.jpeg";
+import BackendProfile from "@/assets/profiles/daven.jpg";
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -241,7 +241,7 @@ export default function App() {
                 <div className={`rounded-xl p-4 md:p-6 transition-shadow duration-200 ${darkMode ? 'bg-gray-900/60 border border-gray-800' : 'bg-white/75 border border-white/60'}`}>
                   <div className="flex flex-col items-center md:items-start gap-4 md:flex-row">
                     <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-white/20 flex-shrink-0">
-                      <img src={FrontendProfile} alt="Frontend Developer" className="w-full h-full object-cover scale-105" />
+                      <img src={FrontendProfile} alt="Frontend Developer" className="w-full h-full object-cover scale-110" />
                     </div>
                     <div className="text-center md:text-left">
                       <h3 className="text-lg md:text-xl font-semibold">Frontend Developer</h3>
@@ -265,7 +265,6 @@ export default function App() {
       <section className="px-6 py-12 md:py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-4xl font-bold text-center mb-6">Our Tech Stack</h2>
-          <p className={`text-center mb-8 ${darkMode ? 'text-gray-400' : 'text-gray-700'}`}>Logos shown in their real colors where available.</p>
 
           <div className="flex flex-wrap justify-center gap-3 md:gap-4">
             {techStack.map((tech, i) => (
