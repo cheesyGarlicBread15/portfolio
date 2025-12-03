@@ -211,7 +211,7 @@ export default function App() {
         {darkMode ? <Sun className="w-5 h-5 text-yellow-300" /> : <Moon className="w-5 h-5 text-blue-600" />}
       </button>
 
-      <section className="min-h-screen flex items-center justify-center px-6 py-16 md:py-24">
+      <section className="min-h-screen flex items-center justify-center px-6 py-8 md:py-24">
         <div className="w-full max-w-6xl">
           <div
             className={`relative overflow-hidden rounded-xl md:rounded-2xl p-6 md:p-12 shadow-md transition-all duration-300
@@ -285,7 +285,7 @@ export default function App() {
         </div>
       </section>
 
-      <section className="px-6 py-8 md:py-12">
+      <section className="px-6 py-8 md:py-24">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl md:text-4xl font-bold text-center mb-8">Our Projects</h2>
 
