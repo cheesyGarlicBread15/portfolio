@@ -326,40 +326,49 @@ export default function App() {
           <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
 
           <div
-            className={`relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl shadow-xl p-4 md:p-6 z-10
-            ${darkMode ? 'bg-gray-900 border border-gray-800' : 'bg-white border border-slate-200'}`}
+            className={`relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl shadow-xl p-6 md:p-8 z-10
+        ${darkMode ? 'bg-gray-900 border border-gray-800' : 'bg-white border border-slate-200'}`}
             onClick={(e) => e.stopPropagation()}
           >
-            <button
-              onClick={closeModal}
-              className={`absolute top-4 right-4 p-2 rounded-full transition-colors duration-150 focus:outline-none
-              ${darkMode ? 'bg-white/5 border border-white/6 text-gray-100' : 'bg-white border border-slate-200 text-gray-700 shadow'}`}
-            >
-              <X className="w-5 h-5" />
-            </button>
 
-            <div className="absolute top-1/2 left-4 -translate-y-1/2 z-20">
+            <div class="flex justify-end">
               <button
-                onClick={prevProject}
-                className={`p-2 rounded-full ${darkMode ? 'bg-white/5 border border-white/6' : 'bg-white border border-slate-200'}`}
+                onClick={closeModal}
+                className={`mb-2 p-2 rounded-full transition-colors duration-150 focus:outline-none cursor-pointer
+          ${darkMode ? 'bg-white/5 border border-white/6 text-gray-100' : 'bg-white border border-slate-200 text-gray-700 shadow'}`}
               >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="absolute top-1/2 right-4 -translate-y-1/2 z-20">
-              <button
-                onClick={nextProject}
-                className={`p-2 rounded-full ${darkMode ? 'bg-white/5 border border-white/6' : 'bg-white border border-slate-200'}`}
-              >
-                <ChevronRight className="w-5 h-5" />
+                <X className="w-5 h-5" />
               </button>
             </div>
 
             <div className="space-y-4 md:space-y-6">
-              <h2 className="text-xl md:text-2xl font-bold">{selectedProject.name}</h2>
+              {/* Name + Prev/Next + Close Buttons */}
+              <div className="flex items-center justify-between mt-4 relative">
+                <button
+                  onClick={prevProject}
+                  className={`p-2 rounded-full transition-colors duration-150 hover:bg-opacity-20 cursor-pointer
+        ${darkMode ? 'bg-white/5 text-gray-100 hover:bg-white/10' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+
+                <h2 className="text-xl md:text-2xl font-bold text-center flex-1 mx-4">
+                  {selectedProject.name}
+                </h2>
+
+                <button
+                  onClick={nextProject}
+                  className={`p-2 rounded-full transition-colors duration-150 hover:bg-opacity-20 cursor-pointer
+          ${darkMode ? 'bg-white/5 text-gray-100 hover:bg-white/10' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Description */}
               <p className={darkMode ? 'text-gray-300' : 'text-slate-700'}>{selectedProject.description}</p>
 
+              {/* Tech List */}
               <div className="flex flex-wrap gap-3">
                 {selectedProject.tech.map((t, i) => (
                   <div key={i} className="flex items-center gap-2 px-3 py-1 rounded-lg border bg-white/5">
@@ -372,6 +381,7 @@ export default function App() {
                 ))}
               </div>
 
+              {/* Links */}
               {(selectedProject.links || []).length > 0 && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {(selectedProject.links || []).map((link, idx) => (
@@ -381,7 +391,7 @@ export default function App() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`flex items-center justify-between px-4 py-3 rounded-lg hover:-translate-y-1 transition-transform
-                      ${darkMode ? 'bg-white/5 border border-white/6' : 'bg-white border border-slate-200'}`}
+                  ${darkMode ? 'bg-white/5 border border-white/6' : 'bg-white border border-slate-200'}`}
                     >
                       <span className={`font-medium ${darkMode ? 'text-green-300' : 'text-blue-600'}`}>{link.type}</span>
                       <svg xmlns="http://www.w3.org/2000/svg" className={`w-4 h-4 ${darkMode ? 'text-green-300' : 'text-blue-600'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -392,6 +402,7 @@ export default function App() {
                 </div>
               )}
 
+              {/* Screenshots */}
               <div className="space-y-3">
                 <div
                   className={`relative w-full rounded-lg overflow-hidden border ${darkMode ? 'border-white/6' : 'border-slate-200'} bg-gray-50 dark:bg-gray-800`}
@@ -413,13 +424,13 @@ export default function App() {
                     <>
                       <button
                         onClick={prevImage}
-                        className={`absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full ${darkMode ? 'bg-white/5' : 'bg-white'}`}
+                        className={`cursor-pointer absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full ${darkMode ? 'bg-white/5' : 'bg-white'}`}
                       >
                         <ChevronLeft className="w-5 h-5" />
                       </button>
                       <button
                         onClick={nextImage}
-                        className={`absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full ${darkMode ? 'bg-white/5' : 'bg-white'}`}
+                        className={`cursor-pointer absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full ${darkMode ? 'bg-white/5' : 'bg-white'}`}
                       >
                         <ChevronRight className="w-5 h-5" />
                       </button>
@@ -428,15 +439,15 @@ export default function App() {
                 </div>
 
                 {(selectedProject.screenshots || []).length > 1 && (
-                  <div className="flex gap-2 overflow-x-auto pb-2">
+                  <div className="flex gap-2 overflow-x-auto px-2 py-2">
                     {selectedProject.screenshots.map((s, i) => (
                       <button
                         key={i}
                         onClick={() => setCurrentImageIndex(i)}
                         className={`flex-shrink-0 w-20 h-12 rounded-md overflow-hidden border transition-transform duration-150
-                        ${i === currentImageIndex ? 'scale-105 ring-2 ring-offset-1 ring-blue-400' : 'opacity-75 hover:opacity-100'} ${darkMode ? 'border-white/10' : 'border-slate-200'}`}
+                    ${i === currentImageIndex ? 'scale-105 ring-2 ring-offset-1 ring-blue-400' : 'opacity-75 hover:opacity-100'} ${darkMode ? 'border-white/10' : 'border-slate-200'}`}
                       >
-                        <img src={s} alt={`thumb-${i}`} className="w-full h-full object-cover" />
+                        <img src={s} alt={`thumb-${i}`} className="cursor-pointer w-full h-full object-cover" />
                       </button>
                     ))}
                   </div>
