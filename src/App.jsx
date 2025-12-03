@@ -11,7 +11,8 @@ import ReactLogo from "@/assets/logos/react.svg";
 import VueLogo from "@/assets/logos/vue.svg";
 import CanvaLogo from "@/assets/logos/canva.svg";
 import FigmaLogo from "@/assets/logos/figma.svg";
-import GithubLogo from "@/assets/logos/github.svg";
+import GithubWhiteLogo from "@/assets/logos/github-white.svg";
+import GithubDarkLogo from "@/assets/logos/github-dark.svg";
 import PostgresqlLogo from "@/assets/logos/postgresql.svg";
 import SupabaseLogo from "@/assets/logos/supabase.svg";
 import FirebaseLogo from "@/assets/logos/firebase.svg";
@@ -91,7 +92,7 @@ export default function App() {
     { name: "Firebase", icon: FirebaseLogo },
     { name: "Supabase", icon: SupabaseLogo },
     { name: "Git", icon: GitLogo },
-    { name: "GitHub", icon: GithubLogo },
+    { name: "GitHub", icon: darkMode ? GithubWhiteLogo : GithubDarkLogo },
     { name: "Canva", icon: CanvaLogo },
     { name: "Figma", icon: FigmaLogo },
     { name: "Android Studio", icon: AndroidstudioLogo },
