@@ -7,27 +7,27 @@ import {
   ChevronRight
 } from 'lucide-react';
 
-import ReactLogo from "@/assets/logos/react.svg";
-import VueLogo from "@/assets/logos/vue.svg";
-import CanvaLogo from "@/assets/logos/canva.svg";
-import FigmaLogo from "@/assets/logos/figma.svg";
-import GithubWhiteLogo from "@/assets/logos/github-white.svg";
-import GithubDarkLogo from "@/assets/logos/github-dark.svg";
-import PostgresqlLogo from "@/assets/logos/postgresql.svg";
-import SupabaseLogo from "@/assets/logos/supabase.svg";
-import FirebaseLogo from "@/assets/logos/firebase.svg";
-import FlutterLogo from "@/assets/logos/flutter.svg";
-import GitLogo from "@/assets/logos/git.svg";
-import LaravelLogo from "@/assets/logos/laravel.svg";
-import MysqlLogo from "@/assets/logos/mysql.svg";
-import PhpLogo from "@/assets/logos/php.svg";
-import PythonLogo from "@/assets/logos/python.svg";
-import JavaLogo from "@/assets/logos/java.svg";
-import DartLogo from "@/assets/logos/dart.svg";
-import AndroidstudioLogo from "@/assets/logos/androidstudio.svg";
-import VscodeLogo from "@/assets/logos/vscode.svg";
-import HostingerLogo from "@/assets/logos/hostinger.svg";
-import PorkbunLogo from "@/assets/logos/porkbun.svg";
+import ReactLogo from "@/assets/logos/tech_stack/react.svg";
+import VueLogo from "@/assets/logos/tech_stack/vue.svg";
+import CanvaLogo from "@/assets/logos/tech_stack/canva.svg";
+import FigmaLogo from "@/assets/logos/tech_stack/figma.svg";
+import GithubWhiteLogo from "@/assets/logos/tech_stack/github-white.svg";
+import GithubDarkLogo from "@/assets/logos/tech_stack/github-dark.svg";
+import PostgresqlLogo from "@/assets/logos/tech_stack/postgresql.svg";
+import SupabaseLogo from "@/assets/logos/tech_stack/supabase.svg";
+import FirebaseLogo from "@/assets/logos/tech_stack/firebase.svg";
+import FlutterLogo from "@/assets/logos/tech_stack/flutter.svg";
+import GitLogo from "@/assets/logos/tech_stack/git.svg";
+import LaravelLogo from "@/assets/logos/tech_stack/laravel.svg";
+import MysqlLogo from "@/assets/logos/tech_stack/mysql.svg";
+import PhpLogo from "@/assets/logos/tech_stack/php.svg";
+import PythonLogo from "@/assets/logos/tech_stack/python.svg";
+import JavaLogo from "@/assets/logos/tech_stack/java.svg";
+import DartLogo from "@/assets/logos/tech_stack/dart.svg";
+import AndroidstudioLogo from "@/assets/logos/tech_stack/androidstudio.svg";
+import VscodeLogo from "@/assets/logos/tech_stack/vscode.svg";
+import HostingerLogo from "@/assets/logos/tech_stack/hostinger.svg";
+import PorkbunLogo from "@/assets/logos/tech_stack/porkbun.svg";
 
 import FrontendProfile from "@/assets/profiles/vianca.jpg";
 import BackendProfile from "@/assets/profiles/daven.jpg";
@@ -205,13 +205,13 @@ export default function App() {
       <button
         onClick={() => setDarkMode(!darkMode)}
         aria-label="Toggle theme"
-        className={`fixed top-4 right-4 z-50 p-3 rounded-full shadow-lg border transition-transform duration-200 hover:scale-105 focus:outline-none
+        className={`fixed top-4 right-4 z-50 p-3 rounded-full shadow-lg border transition-transform duration-200 hover:scale-105 focus:outline-none cursor-pointer
         ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-slate-200'}`}
       >
         {darkMode ? <Sun className="w-5 h-5 text-yellow-300" /> : <Moon className="w-5 h-5 text-blue-600" />}
       </button>
 
-      <section className="min-h-screen flex items-center justify-center px-6 py-8 md:py-24">
+      <section className="flex items-center justify-center px-6 py-8 md:py-24">
         <div className="w-full max-w-6xl">
           <div
             className={`relative overflow-hidden rounded-xl md:rounded-2xl p-6 md:p-12 shadow-md transition-all duration-300
