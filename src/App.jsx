@@ -36,6 +36,7 @@ export default function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', darkMode);
@@ -161,12 +162,16 @@ export default function App() {
     setSelectedProject({ ...project, index });
     setCurrentImageIndex(0);
     document.body.style.overflow = 'hidden';
+    setTimeout(() => setModalVisible(true), 10);
   };
 
   const closeModal = () => {
-    setSelectedProject(null);
-    setCurrentImageIndex(0);
-    document.body.style.overflow = 'unset';
+    setModalVisible(false);
+    setTimeout(() => {
+      setSelectedProject(null);
+      setCurrentImageIndex(0);
+      document.body.style.overflow = 'unset';
+    }, 200);
   };
 
   const nextProject = () => {
@@ -323,11 +328,17 @@ export default function App() {
 
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={closeModal}>
-          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+          <div
+            className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-200
+    ${modalVisible ? 'opacity-100' : 'opacity-0'}`}
+            onClick={closeModal}
+          />
 
           <div
             className={`relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl shadow-xl p-6 md:p-8 z-10
-        ${darkMode ? 'bg-gray-900 border border-gray-800' : 'bg-white border border-slate-200'}`}
+    transition-all duration-200 transform
+    ${modalVisible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-20'}
+    ${darkMode ? 'bg-gray-900 border border-gray-800' : 'bg-white border border-slate-200'}`}
             onClick={(e) => e.stopPropagation()}
           >
 
@@ -335,7 +346,10 @@ export default function App() {
               <button
                 onClick={closeModal}
                 className={`mb-2 p-2 rounded-full transition-colors duration-150 focus:outline-none cursor-pointer
-          ${darkMode ? 'bg-white/5 border border-white/6 text-gray-100' : 'bg-white border border-slate-200 text-gray-700 shadow'}`}
+    ${darkMode
+                    ? 'bg-red-700/30 border border-red-600 text-red-400 hover:bg-red-700/50'
+                    : 'bg-red-100 border border-red-300 text-red-600 hover:bg-red-200'
+                  }`}
               >
                 <X className="w-5 h-5" />
               </button>
@@ -352,7 +366,7 @@ export default function App() {
                   <ChevronLeft className="w-5 h-5" />
                 </button>
 
-                <h2 className="text-xl md:text-2xl font-bold text-center flex-1 mx-4">
+                <h2 className="text-2xl md:text-3xl font-bold text-center flex-1 mx-4">
                   {selectedProject.name}
                 </h2>
 
