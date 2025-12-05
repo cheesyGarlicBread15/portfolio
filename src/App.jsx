@@ -28,8 +28,9 @@ import AndroidstudioLogo from "@/assets/logos/tech_stack/androidstudio.svg";
 import VscodeLogo from "@/assets/logos/tech_stack/vscode.svg";
 import HostingerLogo from "@/assets/logos/tech_stack/hostinger.svg";
 import PorkbunLogo from "@/assets/logos/tech_stack/porkbun.svg";
+import TailwindcssLogo from "@/assets/logos/tech_stack/tailwindcss.svg";
 
-import FrontendProfile from "@/assets/profiles/vianca.jpg";
+import FrontendProfile from "@/assets/profiles/vianca.jpeg";
 import BackendProfile from "@/assets/profiles/daven.jpg";
 
 export default function App() {
@@ -83,6 +84,7 @@ export default function App() {
     { name: "Laravel", icon: LaravelLogo },
     { name: "React.js", icon: ReactLogo },
     { name: "Vue.js", icon: VueLogo },
+    { name: "TailwindCSS", icon: TailwindcssLogo },
     { name: "Flutter", icon: FlutterLogo },
     { name: "Python", icon: PythonLogo },
     { name: "PHP", icon: PhpLogo },
@@ -237,7 +239,7 @@ export default function App() {
                 <div className={`${darkMode ? 'bg-gray-900/60 border border-gray-800' : 'bg-slate-50/70 border border-slate-200'} rounded-xl p-4 md:p-6 transition-shadow duration-200`}>
                   <div className="flex flex-col items-center md:items-start gap-4 md:flex-row">
                     <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-white/20 flex-shrink-0">
-                      <img src={BackendProfile} alt="Backend Developer" className="w-full h-full object-cover" />
+                      <img src={BackendProfile} alt="Backend Developer" className="w-full h-full object-cover scale-100" />
                     </div>
                     <div className="text-center md:text-left">
                       <h3 className="text-lg md:text-xl font-semibold">Backend Developer</h3>
@@ -251,7 +253,7 @@ export default function App() {
                 <div className={`${darkMode ? 'bg-gray-900/60 border border-gray-800' : 'bg-slate-50/70 border border-slate-200'} rounded-xl p-4 md:p-6 transition-shadow duration-200`}>
                   <div className="flex flex-col items-center md:items-start gap-4 md:flex-row">
                     <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-white/20 flex-shrink-0">
-                      <img src={FrontendProfile} alt="Frontend Developer" className="w-full h-full object-cover scale-110" />
+                      <img src={FrontendProfile} alt="Frontend Developer" className="w-full h-full object-cover rotate-y-180 scale-130" />
                     </div>
                     <div className="text-center md:text-left">
                       <h3 className="text-lg md:text-xl font-semibold">Frontend Developer</h3>
